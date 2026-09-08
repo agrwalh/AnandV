@@ -1,0 +1,283 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   ANAND V JEWELLERS — LUXURY DESIGN SYSTEM
+   Theme: BlueStone Iconic Rose Pink + Crisp Architectural White (Stripe Geometry)
+   Animations: Apple iOS Micro-spring & Glassmorphism
+   ========================================================================== */
+
+:root {
+  /* BlueStone Signature Rose Pink Palette */
+  --rose-primary: #e43d70;
+  --rose-dark: #b81c4e;
+  --rose-deep: #780d31;
+  --rose-light: #fef0f4;
+  --rose-subtle: #fff5f8;
+  --rose-border: #f8c9d9;
+  --rose-glow: rgba(228, 61, 112, 0.18);
+
+  /* Luxury Gold Accents */
+  --gold-primary: #c99b27;
+  --gold-bright: #e5b94c;
+  --gold-light: #fcf8ee;
+  --gold-border: #ebd59b;
+
+  /* Crisp Architectural Surfaces (Stripe Aesthetic) */
+  --surface-white: #ffffff;
+  --surface-canvas: #fcfbfa;
+  --surface-panel: #f9f9fb;
+  --surface-border: #ebecef;
+  --surface-border-subtle: #f2f3f5;
+
+  /* Typography Colors */
+  --text-main: #191c21;
+  --text-secondary: #4b525d;
+  --text-muted: #7e8794;
+  --text-rose: #be2054;
+
+  /* Stripe-Style Crisp Corners (NO round bubbly pills) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Elevation Shadows */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-card: 0 2px 8px rgba(15, 23, 42, 0.05), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 12px 28px -6px rgba(228, 61, 112, 0.12), 0 6px 14px -4px rgba(0, 0, 0, 0.04);
+  --shadow-modal: 0 24px 60px -12px rgba(15, 23, 42, 0.22);
+  --shadow-stripe-btn: 0 2px 5px rgba(228, 61, 112, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  /* Apple iOS Micro Transitions */
+  --ease-ios: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --transition-fast: 160ms var(--ease-ios);
+  --transition-normal: 260ms var(--ease-ios);
+  --transition-spring: 340ms var(--ease-spring);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-main);
+  background-color: var(--surface-canvas);
+}
+
+body {
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Typography Classes */
+.font-cinzel {
+  font-family: 'Cinzel', serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-sans {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Apple iOS Modern Soft Button */
+.btn-stripe-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #f05284 0%, #e43d70 60%, #c92157 100%);
+  color: #ffffff;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 11px 24px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(228, 61, 112, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-stripe-primary:hover {
+  background: linear-gradient(135deg, #f76293 0%, #eb4477 60%, #d42761 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(228, 61, 112, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.btn-stripe-primary:active {
+  transform: scale(0.97);
+  box-shadow: 0 2px 8px rgba(228, 61, 112, 0.3);
+}
+
+.btn-stripe-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  color: var(--text-main);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 11px 22px;
+  border-radius: 9999px;
+  border: 1px solid rgba(228, 61, 112, 0.25);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-stripe-secondary:hover {
+  border-color: var(--rose-primary);
+  color: var(--rose-primary);
+  background-color: var(--rose-light);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(228, 61, 112, 0.15);
+}
+
+.btn-stripe-secondary:active {
+  transform: scale(0.97);
+}
+
+/* Modern Soft Apple-Style Jewelry Card */
+.jewel-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(228, 61, 112, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.jewel-card:hover {
+  border-color: rgba(228, 61, 112, 0.35);
+  box-shadow: 0 16px 36px -4px rgba(228, 61, 112, 0.16), 0 8px 16px -2px rgba(0, 0, 0, 0.04);
+  transform: translateY(-5px);
+}
+
+/* Custom Horizontal Scrollbar for Mobile Carousel */
+.scroll-rail {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rose-border) transparent;
+}
+
+.scroll-rail::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scroll-rail::-webkit-scrollbar-thumb {
+  background: var(--rose-border);
+  border-radius: var(--radius-xs);
+}
+
+.scroll-item {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Badge Styling */
+.badge-crisp {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  border-radius: var(--radius-xs);
+}
+
+.badge-rose {
+  background-color: var(--rose-light);
+  color: var(--rose-primary);
+  border: 1px solid var(--rose-border);
+}
+
+.badge-gold {
+  background-color: var(--gold-light);
+  color: var(--gold-primary);
+  border: 1px solid var(--gold-border);
+}
+
+.badge-dark {
+  background-color: #191c21;
+  color: #ffffff;
+  border: 1px solid #333842;
+}
+
+/* Shimmer Light Reflection Effect (Apple Keynote Style) */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: goldShimmer 3s infinite;
+}
+
+/* Live Gold Ticker Pulse */
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.3);
+  }
+}
+
+.live-pulse {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+/* Mobile Touch Optimization */
+@media (max-width: 768px) {
+  .btn-stripe-primary, .btn-stripe-secondary {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
